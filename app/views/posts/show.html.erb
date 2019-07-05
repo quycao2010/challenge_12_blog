@@ -1,0 +1,10 @@
+<h1>List posts</h1>
+<h2>
+    Title: <%= @post.title %>
+</h2>
+<p>
+    Submited <%= time_ago_in_words(@post.created_at)%>
+</p>
+<p>
+    <%= @post.content %>
+</p>

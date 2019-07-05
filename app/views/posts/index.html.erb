@@ -1,0 +1,11 @@
+<h1>This is index file</h1>
+<% @posts.each do |post| %>
+    <div>
+        <h2>
+            <%= link_to post.title, post %>
+        </h2>
+        <p>
+            Created: <%= post.created_at.strftime("%B, %d, %Y") %>
+        </p>
+    </div>
+<% end %>
