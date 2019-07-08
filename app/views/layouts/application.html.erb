@@ -18,14 +18,14 @@
 			<li><a href="mailto:quycao2010@gmail.com">Email</a></li>
 		</ul>
 
-		<p class="sign_in">Signin</p>
+		<p class="sign_in"><%= link_to "Sign in",user_session_path %></p>
 </div>
 
 <div id="main_content">
 		<div id="header">
 				<div class="buttons">
 					<button class="button"><%= link_to "New Post", new_post_path %></button>
-					<button class="button">Log Out</button>
+					<button class="button"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button>
 				</div>
 		</div>
 		<%= yield %>
