@@ -173,7 +173,7 @@ DEPENDENCIES
   devise (~> 3.3.0)
   jbuilder (~> 2.0)
   jquery-rails
-  pg (~> 0.15)
+  pg (~> 0.20)
   rails (= 4.2.8)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
