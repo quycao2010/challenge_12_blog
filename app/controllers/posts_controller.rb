@@ -4,7 +4,12 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC')
   end
 
-  def new    
+  def new
+    @post = Post.new   
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def show
@@ -14,12 +19,27 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Post was created successfully'
     else
       render :back
     end 
   end
   
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params) 
+      redirect_to @post, notice: 'Post was updated successfully'
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to root_path
+  end
+
   private
 
   def post_params

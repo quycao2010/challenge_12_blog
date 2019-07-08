@@ -5,7 +5,16 @@
         <%= @post.content %>
     </div>
     <div class="card-footer">
-          Submited <%= time_ago_in_words(@post.created_at)%>
+        Submited <%= time_ago_in_words(@post.created_at)%>
+        <%= link_to "Edit", edit_post_path(@post),class: "btn btn-primary" %>
+        <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}  ,class: "btn btn-danger" %>
+        <p>Comment <%= @post.comments.count%> </p>
     </div>
 </div>
+<div id="comments">
+    <%= render @post.comments %>
+    <h2>Comment</h2>
+    <%= render "comments/form" %>
+</div>
+
 </div>
