@@ -17,15 +17,18 @@
 			<li class="category">Social</li>
 			<li><a href="mailto:quycao2010@gmail.com">Email</a></li>
 		</ul>
-
-		<p class="sign_in">Signin</p>
 </div>
 
 <div id="main_content">
 		<div id="header">
 				<div class="buttons">
-					<button class="button"><%= link_to "New Post", new_post_path %></button>
-					<button class="button">Log Out</button>
+					<% if logged_in? %>
+						<button class="button"><%= link_to "New Post", new_post_path %></button>
+						<button class="button"><%= link_to "Logout", logout_path %></button>
+					<% else %>
+						<button class="button"><%= link_to "Sign up", signup_path %></button>
+						<button class="button"><%= link_to "Login", login_path %></button>
+					<% end %>
 				</div>
 		</div>
 		<%= yield %>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :check_login, only: [:edit, :update, :destroy, :new]
 
   def index
     @posts = Post.all.order('created_at DESC')
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
     if @post.update(post_params) 
       redirect_to @post, notice: 'Post was updated successfully'
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -45,4 +46,11 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content)
   end
+
+  def check_login
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
+  
 end
